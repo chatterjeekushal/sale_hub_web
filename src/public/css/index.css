@@ -131,6 +131,35 @@ z-index: 200;
 
 
 
+
+#user_pop_up{
+
+    border:1px solid red;
+    position: absolute;
+    width: fit-content;
+    padding: 1rem;
+    left:800px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .search_area {
 
     width: 100%;

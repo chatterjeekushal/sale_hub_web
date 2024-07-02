@@ -54,7 +54,7 @@ router.get("/salehub.com", (req, res) => {
 
 router.route("/singup").post(ragister_user)
 router.route("/salehub").post(varifyjwt,otp_varify)
-router.route("/wish").post(user_wish_list)
+router.route("/salehub").get(varifyjwt,otp_varify)
 router.route("/login").post(login_user)
 router.route("/logout").get(varifyjwt,user_logout)
 

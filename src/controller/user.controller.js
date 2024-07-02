@@ -17,6 +17,7 @@ const otpGenerator = require('otp-generator');
 const nodemailer = require("nodemailer");
 
 const Otp = require("../model/otp.model.js")
+const { error } = require('console')
 
 
 
@@ -131,7 +132,7 @@ try {
     
             const { accessToken, refreshToken } = await GanarateToken(user._id)
     
-            console.log(accessToken, refreshToken);
+        
     
             // send cookie
     
@@ -166,32 +167,36 @@ try {
 
 
 const otp_varify = async (req, res) => {
+    try {
+        let otp = req.body.otp;
 
+        if (!otp) {
+            console.log("Please enter the OTP");
+            return res.status(400).json({ message: "Please enter the OTP" });
+        }
 
-    let otp = req.body.otp
+        const otp_data = await Otp.findOne({ otp });
 
-    console.log(otp);
+        if (!otp_data) {
+            console.log("Please enter the correct OTP");
+            return res.status(400).json({ message: "Please enter the correct OTP" });
+        }
 
+        const userid = await User.findById(req.decodeduser._id);
 
-    const otp_data = await Otp.findOne({ otp: otp })
+        if (!userid) {
+            console.log("User not found");
+            return res.status(404).json({ message: "User not found" });
+        }
 
-    console.log(otp_data);
+        return res.render(path.resolve('./views/index.ejs'), { userid });
 
-    if (!otp_data) {
-
-        console.log("plese enter currect otp");
+    } catch (error) {
+        console.log("OTP verification error", error);
+        return res.status(500).json({ message: "OTP verification error" });
     }
+};
 
-    else {
-
-        const userid=await User.findById(req.decodeduser._id)
-
-        console.log(userid);
-
-        res.render(path.resolve('./views/index.ejs'))
-    }
-
-}
 
 
 
