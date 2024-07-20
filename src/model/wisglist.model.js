@@ -3,15 +3,22 @@
 
 const express = require('express')
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const { schema } = require('./user.model');
 
 require('dotenv').config({ path: './env' });
+
+const User = require("../model/user.model.js")
 
 const Wish_list_schema = new mongoose.Schema({
 
 
     product_id: {
         type: String,
+    },
+    product_user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: User
     },
     product_name: {
         type: String,
@@ -22,11 +29,11 @@ const Wish_list_schema = new mongoose.Schema({
     product_price: {
         type: String,
     },
-    product_gender:{
-        type:String,
+    product_gender: {
+        type: String,
     },
-    product_color:{
-        type:String,
+    product_color: {
+        type: String,
     },
 }, { timestamps: true })
 

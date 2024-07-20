@@ -12,6 +12,10 @@ const Wishlist = require("../model/wisglist.model.js")
 
 const varifyjwt = require("../middleware/auth.js")
 
+const User=require("../model/user.model.js")
+
+const uuid = require('uuid');
+
 
 const get_url = async (req, res) => {
 
@@ -25,11 +29,11 @@ const get_url = async (req, res) => {
 
     console.log(p_imge);
 
-    const product = new Product({ product_name: p_name, product_image: p_imge, product_price: p_price, product_gender: p_gender, product_color: p_color, product_id: req.decodeduser._id })
+    const product = new Product({ product_name: p_name, product_image: p_imge, product_price: p_price, product_gender: p_gender, product_color: p_color, product_id:uuid.v4(),product_user:req.decodeduser._id })
 
     const product_data = await product.save()
 
-    const find_product = await Product.findOne({ product_name: p_name })
+    const find_product = await Product.findOne({ product_user: req.decodeduser._id })
 
 
 
@@ -54,11 +58,11 @@ const get_wish = async (req, res) => {
 
     // console.log(p_imge);
 
-    const product_wish = new Wishlist({ product_name: p_name, product_image: p_imge, product_price: p_price, product_gender: p_gender, product_color: p_color, product_id: req.decodeduser._id })
+    const product_wish = new Wishlist({ product_name: p_name, product_image: p_imge, product_price: p_price, product_gender: p_gender, product_color: p_color, product_id:uuid.v4(),product_user:req.decodeduser._id  })
 
     const product_data = await product_wish.save()
 
-    const product_all_data = await Wishlist.find({ product_id: req.decodeduser._id })
+    const product_all_data = await Wishlist.find({ product_user: req.decodeduser._id })
 
     res.render(path.resolve('./views/wishlist.ejs'), {product_all_data})
 

@@ -53,13 +53,14 @@ const GanarateToken = async (userid) => {
 
 
 
-const sendVerifyMail = async (name, email, user_id) => {
+
+const sendVerifyMail = async (name, email, user_id, otp_detail) => {
     try {
-        const transporter = await nodemailer.createTransport({
+        const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
                 user: 'chatterjeekushal448@gmail.com',
-                pass: 'drlz bmfi kkia dwkv '
+                pass: 'drlz bmfi kkia dwkv ' // use environment variables for credentials
             }
         });
 
@@ -67,12 +68,10 @@ const sendVerifyMail = async (name, email, user_id) => {
             from: 'chatterjeekushal448@gmail.com',
             to: email,
             subject: 'salehub.com',
-            html: `"Hi ${name}, welcome to <b>salehub.com</b> for trending fashion here.
-
-            ${name}, thank you for registering on our website. Please verify your email.
-            
-            Your verification email OTP is <b>9487</b>.
-            
+            html: `
+                Hi ${name}, welcome to <b>salehub.com</b> for trending fashion here.<br><br>
+                ${name}, thank you for registering on our website. Please verify your email.<br><br>
+                Your verification email OTP is <b>${otp_detail}</b>.
             `
         };
 
@@ -99,60 +98,64 @@ const sendVerifyMail = async (name, email, user_id) => {
 
 const ragister_user = async (req, res) => {
 
-try {
+    try {
         let { username, email, password, phoneNo, street, city, country, pincode, } = req.body
-    
-    
-    
+
+
+
         // console.log(username);
-    
+
         const user = new User({ username: username, email: email, password: password, phoneNo: phoneNo, shopping_info: { street: street, city: city, country: country, pincode: pincode, } })
-    
-    
+
+
         const olradyragister = await User.findOne({ email: email })
-    
+
         console.log(user._id);
-    
+
         if (olradyragister) {
-    
+
             console.log("user exgist this email");
         }
-    
+
         else {
-    
+
             const user_data = await user.save()
-    
-    
-            await sendVerifyMail(username, email, user_data._id);
-    
-    
-            const otp = new Otp({ email: email, otp: "1234" })
-    
+
+        const otp_detale =  otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false });
+
+        console.log(otp_detale,'otp is');
+
+            await sendVerifyMail(username, email, user_data._id,otp_detale);
+
+
+
+            const otp = new Otp({ email: email, otp: otp_detale })
+
             const otp_data = await otp.save()
-    
+
             const { accessToken, refreshToken } = await GanarateToken(user._id)
-    
-        
-    
+
+
+
             // send cookie
-    
+
             const options = {
-    
+
                 httpOnly: true,
                 secure: true,
             }
-    
-    
+
+
             return res
                 .status(200)
                 .cookie("accessToken", accessToken, options)
                 .cookie("refreshToken", refreshToken, options)
                 .render(path.resolve('./views/otp.ejs'))
-    
+
         }
-} catch (error) {
-    console.log("user registration error",error);
-}
+    } catch (error) {
+        console.log("user registration error", error);
+    }
 
 
 
@@ -182,14 +185,11 @@ const otp_varify = async (req, res) => {
             return res.status(400).json({ message: "Please enter the correct OTP" });
         }
 
-        const userid = await User.findById(req.decodeduser._id);
+        // const userid = await User.findById(req.decodeduser._id);
 
-        if (!userid) {
-            console.log("User not found");
-            return res.status(404).json({ message: "User not found" });
-        }
+        
 
-        return res.render(path.resolve('./views/index.ejs'), { userid });
+        return res.redirect(307,"http://localhost:3000/user/web")
 
     } catch (error) {
         console.log("OTP verification error", error);
@@ -200,7 +200,12 @@ const otp_varify = async (req, res) => {
 
 
 
+const get_web = async (req, res) =>{
 
+    const userid=await User.findById(req.decodeduser._id);
+
+    res.render(path.resolve('./views/index.ejs'), {userid})
+}
 
 
 
@@ -390,4 +395,4 @@ const user_logout = async function (req, res) {
 
 
 
-module.exports = { ragister_user, user_wish_list, login_user, user_logout, otp_varify }
+module.exports = { ragister_user, user_wish_list, login_user, user_logout, otp_varify ,get_web}

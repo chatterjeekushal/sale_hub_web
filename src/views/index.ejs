@@ -15,7 +15,7 @@
 
 
 
-    <link rel="stylesheet" href="../public/css/index.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/index.css" />
 
 
 
@@ -43,11 +43,15 @@
 
     <header>
 
-        <nav class="navbar">
+        <nav class="navbar border border-red-600">
 
 
             <ul class="list_holder">
-                <li id="home_list"><%= typeof userid !== 'undefined' && userid.username ? userid.username : 'home' %></li>
+                <li id="home_list"> <i class="bi bi-search"></i>
+                    <%= typeof userid !=='undefined' && userid.username ? userid.username : 'home' %>
+                </li>
+
+
 
 
                 <ul class="sub_list_home d_none nav_home">
@@ -58,11 +62,10 @@
 
                 </ul>
 
-                <li>Pages</li>
 
-                <li>Woman</li>
-                <li>Men</li>
-                <li id="blog_list">blog</li>
+                <li id="blog_list"><i class="bi bi-search"></i> Tranding</li>
+
+                <li class="search_list"><i class="bi bi-search"></i> search</li>
 
                 <ul class="sub_list_blog nav_blog d_none">
                     <li>About us</li>
@@ -74,7 +77,18 @@
                 <a class="brand" style=" font-family: Cormorant Garamond,sans-serif;
                 font-weight: 900;
                 font-style: normal;">Salehub</a>
-                <li class="search_list"><i class="bi bi-search"></i> search</li>
+
+
+                <a href="user/">
+                    <li>Sing Up</li>
+                </a>
+
+                <form action="/login" method="POST">
+
+                <button type="submit">Submit</button>
+
+                </form>
+
 
                 <li class="account">account</li>
 
@@ -85,6 +99,9 @@
 
                     <li><i class="bi bi-gift"></i> Gift card</li>
 
+
+
+
                 </ul>
 
 
@@ -94,7 +111,7 @@
                     My Cart</li>
             </ul>
 
-            
+
 
 
         </nav>
@@ -103,6 +120,12 @@
 
 
     </header>
+
+
+
+
+
+
 
 
 
@@ -436,7 +459,8 @@
 
                             <div class="product_btn">
 
-                                <button><a href="product/wish/?p_name=levis Western denim jacket &p_img=https://shorturl.at/1aOqW&p_price=55.99&p_gender=female&p_color=gray&p_id=ghy567">wishlist</a></button>
+                                <button><a
+                                        href="product/wish/?p_name=levis Western denim jacket &p_img=https://shorturl.at/1aOqW&p_price=55.99&p_gender=female&p_color=gray&p_id=ghy567">wishlist</a></button>
                                 <button><a
                                         href="product/pd/?p_name=levis Western denim jacket &p_img=https://shorturl.at/1aOqW&p_price=55.99&p_gender=female&p_color=gray&p_id=ghy567">buynow</a></button>
 

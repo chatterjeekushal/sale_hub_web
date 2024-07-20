@@ -5,11 +5,17 @@ const express = require('express')
 const mongoose = require('mongoose')
 const { schema } = require('./user.model')
 
+const User=require("../model/user.model.js")
+
 const product_schema = new mongoose.Schema({
 
 
     product_id: {
         type: String,
+    },
+    product_user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: User
     },
     product_name: {
         type: String,
