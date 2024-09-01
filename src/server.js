@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const user_route = require("./routes/user.routes.js");
 const product_route = require("./routes/product.routes.js");
 const cookie = require('cookie-parser');
+const nodemon =require("nodemon")
+
 
 
 const app = express();
@@ -25,7 +27,7 @@ app.use('/public', express.static('public'));
 
 async function database() {
   try {
-    await mongoose.connect('mongodb://127.0.0.1:27017/c_com_data', {
+    await mongoose.connect('mongodb+srv://Salehubweb:Slaehub1234@cluster0.2owngcb.mongodb.net/c_com_data', {
       // Removed deprecated options
     });
     console.log('Connected to MongoDB Atlas');

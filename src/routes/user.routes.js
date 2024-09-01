@@ -14,7 +14,7 @@ const { auth, requiresAuth } = require('express-openid-connect');
 
 
 
-const { ragister_user, user_wish_list, login_user, user_logout, otp_varify, get_web } = require("../controller/user.controller.js")
+const { ragister_user, user_wish_list, login_user, user_logout, otp_varify, get_web,forgot_pass } = require("../controller/user.controller.js")
 
 const varifyjwt = require("../middleware/auth.js")
 
@@ -54,12 +54,28 @@ router.get('/profile', requiresAuth(), (req, res) => {
 
 
 
+
+
+
+
 router.route("/singup").post(ragister_user)
 router.route("/salehub").post(varifyjwt, otp_varify)
 router.route("/login").post(login_user)
 router.route("/logout").get(varifyjwt, user_logout)
 
+
+
+// forgot_pss_route
+
+router.route("/forgot_pass").get(forgot_pass)
+
+
+
+
 // router.route("/wishdata").post(show_wishlist)
+
+
+
 
 
 

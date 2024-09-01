@@ -121,11 +121,11 @@ const ragister_user = async (req, res) => {
 
             const user_data = await user.save()
 
-        const otp_detale =  otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false });
+            const otp_detale = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false });
 
-        console.log(otp_detale,'otp is');
+            console.log(otp_detale, 'otp is');
 
-            await sendVerifyMail(username, email, user_data._id,otp_detale);
+            await sendVerifyMail(username, email, user_data._id, otp_detale);
 
 
 
@@ -187,9 +187,9 @@ const otp_varify = async (req, res) => {
 
         // const userid = await User.findById(req.decodeduser._id);
 
-        
 
-        return res.redirect(307,"http://localhost:3000/user/web")
+
+        return res.redirect(307, "http://localhost:3000/user/web")
 
     } catch (error) {
         console.log("OTP verification error", error);
@@ -200,47 +200,30 @@ const otp_varify = async (req, res) => {
 
 
 
-const get_web = async (req, res) =>{
+const get_web = async (req, res) => {
 
-    const userid=await User.findById(req.decodeduser._id);
+    const userid = await User.findById(req.decodeduser._id);
 
-    res.render(path.resolve('./views/index.ejs'), {userid})
+    res.render(path.resolve('./views/index.ejs'), { userid })
 }
 
 
 
 
+// const user_wish_list = async (req, res) => {
+//     try {
+//         let { product_id, product_name, product_price, prodect_image } = req.body
 
+//         console.log(product_name);
 
+//         const wishlist = new Wishlist({ product_id: product_id, product_name: product_name, product_price: product_price, prodect_image: prodect_image })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const user_wish_list = async (req, res) => {
-    try {
-        let { product_id, product_name, product_price, prodect_image } = req.body
-
-        console.log(product_name);
-
-        const wishlist = new Wishlist({ product_id: product_id, product_name: product_name, product_price: product_price, prodect_image: prodect_image })
-
-        const wishlistData = await wishlist.save();
-        res.json(wishlistData);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
+//         const wishlistData = await wishlist.save();
+//         res.json(wishlistData);
+//     } catch (error) {
+//         res.status(500).json({ message: error.message });
+//     }
+// };
 
 
 // impotent: wishlist model ar product id hoba user er id 
@@ -339,6 +322,89 @@ const login_user = async (req, res) => {
 
 
 
+const forgot_pass = async (req, res) => {
+
+    res.render(path.resolve('./views/forgot_pass_email.ejs'))
+}
+
+
+
+
+
+
+const forgot_pass_email_send = async (req, res) => {
+
+    try {
+
+let email=req.body.forgot_email
+
+console.log(`forgot_pass_email ${email}`);
+
+const varify_forgot_email= await User.findOne({email})
+
+if(!varify_forgot_email){
+
+    console.log("your email address not ragister");
+    
+}
+
+const otp_detale = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false });
+
+console.log(otp_detale, 'otp is');
+
+await sendVerifyMail(varify_forgot_email.username,varify_forgot_email.email,);
+
+
+const otp = new Otp({ email: email, otp: otp_detale })
+
+const otp_data = await otp.save()
+
+res.render(path.resolve('./views/otp.ejs'))
+
+
+    } catch (error) {
+
+console.log("forgos pass email send eror ",error);
+
+
+    }
+}
+
+
+
+const forgot_pass_otp_varify= async(req,res)=>{
+
+    let otp = req.body.otp;
+
+    if (!otp) {
+        console.log("Please enter the OTP");
+        return res.status(400).json({ message: "Please enter the OTP" });
+    }
+
+    const otp_data = await Otp.findOne({ otp });
+
+    if (!otp_data) {
+        console.log("Please enter the correct OTP");
+        return res.status(400).json({ message: "Please enter the correct OTP" });
+    }
+
+
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -395,4 +461,4 @@ const user_logout = async function (req, res) {
 
 
 
-module.exports = { ragister_user, user_wish_list, login_user, user_logout, otp_varify ,get_web}
+module.exports = { ragister_user, login_user, user_logout, otp_varify, get_web, forgot_pass }
