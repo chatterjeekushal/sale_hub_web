@@ -32,7 +32,7 @@ const GanarateToken = async (userid) => {
 
         const refreshToken = await userexist.refrashToken()
 
-        console.log("reftoken", refreshToken);
+        
 
         userexist.RefToken = refreshToken
 
@@ -135,7 +135,7 @@ const ragister_user = async (req, res) => {
 
             const { accessToken, refreshToken } = await GanarateToken(user._id)
 
-
+            const actionUrl = '/user/salehub';
 
             // send cookie
 
@@ -150,7 +150,7 @@ const ragister_user = async (req, res) => {
                 .status(200)
                 .cookie("accessToken", accessToken, options)
                 .cookie("refreshToken", refreshToken, options)
-                .render(path.resolve('./views/otp.ejs'))
+                .render(path.resolve('./views/otp.ejs'),{ formAction: actionUrl })
 
         }
     } catch (error) {
@@ -292,7 +292,7 @@ const login_user = async (req, res) => {
         const { accessToken, refreshToken } = await GanarateToken(userexit._id)
 
 
-        console.log(accessToken, refreshToken);
+        
 
 
         // send cookie
@@ -308,7 +308,7 @@ const login_user = async (req, res) => {
             .status(200)
             .cookie("accessToken", accessToken, options)
             .cookie("refreshToken", refreshToken, options)
-            .json({ accessToken: accessToken, refreshToken: refreshToken })
+            .redirect(307, "http://localhost:3000/user/web")
     } catch (error) {
 
         throw new Error("user login function error", error)
@@ -352,14 +352,16 @@ const otp_detale = otpGenerator.generate(6, { upperCaseAlphabets: false, special
 
 console.log(otp_detale, 'otp is');
 
-await sendVerifyMail(varify_forgot_email.username,varify_forgot_email.email,);
+await sendVerifyMail(varify_forgot_email.username,varify_forgot_email.email,"hj",otp_detale);
 
 
 const otp = new Otp({ email: email, otp: otp_detale })
 
 const otp_data = await otp.save()
 
-res.render(path.resolve('./views/otp.ejs'))
+const actionUrl = '/user/forgot_pass_otp_varify';
+
+res.render(path.resolve('./views/otp.ejs'), { formAction: actionUrl })
 
 
     } catch (error) {
@@ -388,9 +390,31 @@ const forgot_pass_otp_varify= async(req,res)=>{
         return res.status(400).json({ message: "Please enter the correct OTP" });
     }
 
+    res.render(path.resolve('./views/conform_pass.ejs'))
 
-    
+}
 
+
+const forgot_pass_reset_password=async(req,res)=>{
+
+    let { email, update_password } = req.body;
+
+
+
+    console.log(email,"email");
+    console.log(update_password,"password");
+
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(update_password,10);
+        
+    // Log the hashed password (not recommended for production)
+    console.log(hashedPassword, "hashed password");
+
+    const filter={email:email};
+
+    const update_pass= await User.findOneAndUpdate(filter,{$set:{password:hashedPassword}},{new:true});
+
+    res.render(path.resolve('./views/login.ejs'))
 }
 
 
@@ -461,4 +485,4 @@ const user_logout = async function (req, res) {
 
 
 
-module.exports = { ragister_user, login_user, user_logout, otp_varify, get_web, forgot_pass }
+module.exports = { ragister_user, login_user, user_logout, otp_varify, get_web, forgot_pass,forgot_pass_email_send,forgot_pass_otp_varify ,forgot_pass_reset_password}
