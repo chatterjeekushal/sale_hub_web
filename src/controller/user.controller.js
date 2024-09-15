@@ -421,19 +421,6 @@ const forgot_pass_reset_password=async(req,res)=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // logout function
 
 

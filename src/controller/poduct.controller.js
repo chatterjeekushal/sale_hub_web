@@ -14,6 +14,8 @@ const varifyjwt = require("../middleware/auth.js")
 
 const User=require("../model/user.model.js")
 
+const Order=require("../model/order.model.js")
+
 const uuid = require('uuid');
 
 
@@ -70,7 +72,31 @@ const get_wish = async (req, res) => {
 
 
 
+// order 
 
+const user_order=async(req,res)=>{
+
+    let {p_name,p_img,p_price,p_gender,p_color}=req.query
+
+    // Create a new order
+    const product_order = new Order({
+        userid: req.decodeduser.id,
+        products: [{
+            productid: uuid.v4(), // Generate unique product ID if needed
+            productname: p_name,
+            productsize: "M", // Ensure that p_size is provided
+            quantity: 1,
+            productimage:p_img,
+            price: p_price
+        }],
+        totalprice: p_price * quantity, // Calculate total price
+        status: {
+            type: true, // Assuming 'type' means 'active' or similar
+            payment: false,
+            delivery: false
+        }
+    });
+}
 
 
 

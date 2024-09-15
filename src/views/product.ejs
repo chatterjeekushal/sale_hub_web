@@ -342,7 +342,7 @@
 
 
 
-                <div class="product_price" style="font-size: 1.1rem;font-weight: bolder;">Price: $<%= data.product_price
+                <div class="product_price" style="font-size: 1.1rem;font-weight: bolder;">Price: $ <%= data.product_price
                         %>
                 </div>
 
@@ -368,9 +368,6 @@
                     Size: <span id="product_size">S</span></div>
 
 
-
-
-
                 <div class="product_size_panel">
 
 
@@ -380,29 +377,19 @@
                     <div class="product_panel_box" id="L">L</div>
                     <div class="product_panel_box dis" id="XL">XL <i class="bi bi-envelope-fill"></i></div>
 
-
-
-
                 </div>
-
-
-
-
-
 
 
 
                 <div class="product_add_to_bag"><a href="">ADD TO BAG</a> <i class="bi bi-arrow-right"
                         style="font-size: 1.3rem;margin-left: 1rem;"></i></div>
 
-
-
-
-
-
-                <div class="product_add_to_bag  product_payment"><a href="">BUY WITH PAYPAL</a></div>
-
-
+                        <div class="product_add_to_bag product_payment">
+                            <a href="product/order/?p_name=<%= encodeURIComponent(data.product_name) %>&p_img=<%= encodeURIComponent(data.product_image) %>&p_price=<%= encodeURIComponent(data.product_price) %>&p_gender=female&p_color=<%= encodeURIComponent(data.product_color) %>&p_id=ghy567">
+                              BUY WITH PAYPAL
+                            </a>
+                          </div>
+                          
 
                 <div class="product_size_chat" style="font-size: 12px;">SIZE CHART</div>
 
