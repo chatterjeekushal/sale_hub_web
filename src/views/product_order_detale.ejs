@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/>
+    <title>Order Summary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+
+    <div class="max-w-5xl mx-auto bg-white shadow-md rounded-lg p-6 mb-6">
+        <h2 class="text-2xl font-bold mb-4">Order Summary</h2>
+        <div class="address mb-4">
+            <h3 class="text-lg font-semibold">Deliver to:</h3>
+            <p><%= Product.user_detale.username %>,</p>
+            <p><%= Product.user_detale.shopping_info.city %></p>
+            <p><%= Product.user_detale.shopping_info.street %>, <%= Product.user_detale.shopping_info.pincode %></p>
+            <p><%= Product.user_detale.phoneNo %></p>
+        </div>
+        <div class="product mb-4">
+            <h4 class="text-lg font-semibold"><%= Product.products.productname %></h4>
+            <p>Size: <%= Product.products.productsize %></p>
+            <p>Quantity: <%= Product.products.quantity %></p>
+            <p>Price: <%= Product.products.price %></p>
+        </div>
+        <div class="total mb-4">
+            <h4 class="font-bold">Total:</h4>
+            <p class="text-xl font-semibold text-green-600"><%= Product.price_detale.total_price %></p>
+        </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-2xl font-bold mb-4">Order Summary</h2>
+        <div class="top-section mb-4">
+            <p class="text-gray-600">9:00 AM</p>
+            <p class="text-gray-600">Share OTP to accept the delivery. Why?</p>
+            <div class="donation-section mt-4 p-4 bg-gray-100 rounded border border-gray-300">
+                <h3 class="text-lg font-semibold">Donate to Flipkart Foundation</h3>
+                <p class="text-gray-600">Support transformative social work in India</p>
+                <div class="donation-options flex space-x-2 mt-2">
+                    <button class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600 transition duration-200">₹10</button>
+                    <button class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600 transition duration-200">₹20</button>
+                    <button class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600 transition duration-200">₹50</button>
+                    <button class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600 transition duration-200">₹100</button>
+                </div>
+                <p class="text-sm text-gray-500 mt-2">Note: GST and No cost EMI will not be applicable</p>
+            </div>
+        </div>
+        <div class="price-details mb-4">
+            <h3 class="text-lg font-semibold">Price Details</h3>
+            <ul class="list-disc list-inside text-gray-700">
+                <li>Price (<%= Product.products.quantity %> item): <%= Product.products.price %></li>
+                <li>Platform Fee: ₹3</li>
+                <li>Delivery Charges: ₹0 FREE Delivery</li>
+                <li class="font-bold">Total Amount: <%= Product.price_detale.total_price %></li>
+            </ul>
+        </div>
+        <div class="bottom-section">
+            <p class="text-sm text-gray-500">Safe and secure payments. Easy returns. 100% Authentic products.</p>
+            <p class="text-xl font-semibold text-green-600"><%= Product.price_detale.total_price %></p>
+            <button class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200 mt-4">Continue</button>
+            <p class="text-blue-500 cursor-pointer mt-2 text-center">View price details</p>
+        </div>
+    </div>
+
+    <h3>Welcome to Payment Gateway</h3>
+
+   <form action="/user/product/payment" method="post">
+    <button type="submit">payment</button>
+   </form>
+
+   
+
+   
+
+
+</body>
+</html>

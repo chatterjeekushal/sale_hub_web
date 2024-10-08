@@ -4,539 +4,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>product</title>
+    <title>Product Card</title>
+
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <style>
-        .Featured_product {
-
-
-            width: 100%;
-            position: relative;
-
-
-        }
-
-        .Featured_hading {
-
-            text-align: center;
-            padding-top: 6.5rem;
-            width: 100%;
-        }
-
-        .product_contaner {
-
+        .product-card {
             display: flex;
-            justify-content: space-between;
-
-        }
-
-        .product_image {
-
-            width: 46%;
-            height: 100vh;
-            margin-left: 2rem;
-            margin-top: 2.8rem;
+            flex-direction: row;
+            border: 1px solid #ddd;
+            border-radius: .25rem;
             overflow: hidden;
-
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
         }
 
-        .product_image img {
+        .product-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
 
+        .product-details {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .product-image {
+            flex: 1;
+        }
+
+        .product-image img {
             width: 100%;
             height: 100%;
+            object-fit: cover;
         }
 
-
-        .product_detail {
-
-
-            width: 43%;
-            margin-top: 5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: flex-start;
-
+        .form-check-input:checked[value="red"]~.form-check-label {
+            background-color: red;
+            color: white;
         }
 
-
-        .product_link {
-
-
-            font-size: 1.3rem;
-            font-family: poppins sans-serif;
-            font-weight: bold;
-            color: rgb(16, 15, 15);
-
-        }
-
-        .product_link a {
-
-            color: rgb(16, 15, 15);
-            text-decoration: none;
-        }
-
-
-
-
-        .product_color_panel {
-
-            display: flex;
-            gap: 1rem;
-
-        }
-
-
-        .color_circle {
-
-            border: 1px solid black;
-            width: 2.7vw;
-            height: 5vh;
-            border-radius: 50%;
-
-        }
-
-
-        .product_panel_box {
-            border: 1px solid black;
-            width: 3.5vw;
-            height: 5vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-
-        }
-
-
-        .product_panel_box:nth-child(3) {
-            border: 1px solid rgb(213, 209, 209);
-            width: 7vw;
-            height: 5vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            display: flex;
-            justify-content: space-around;
-            background-color: rgba(231, 223, 223, 0.779);
-            color: rgba(173, 171, 171, 0.779);
-
-        }
-
-
-        .product_panel_box:nth-child(5) {
-            border: 1px solid rgb(188, 188, 188);
-            width: 7vw;
-            height: 5vh;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            background-color: rgba(231, 223, 223, 0.779);
-            color: rgba(173, 171, 171, 0.779);
-
-        }
-
-
-        .product_size_panel {
-
-            display: flex;
-            gap: 1.2rem;
-
-            width: 40vw;
-        }
-
-
-        .product_add_to_bag {
-
-
-            width: 30vw;
-            height: 7.5vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgb(204, 200, 200);
-        }
-
-        .product_add_to_bag a {
-
-            text-decoration: none;
-            color: black;
-            font-family: poppins, sans-serif;
-            font-weight: bolder;
-        }
-
-        .product_add_to_bag .bi-arrow-right {
-
-            display: none;
-        }
-
-        .product_add_to_bag:hover {
+        .form-check-input:checked[value="black"]~.form-check-label {
             background-color: black;
             color: white;
         }
 
-        .product_add_to_bag:hover a {
+        .form-check-label {
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            display: inline-block;
+            color: #000;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
 
+        .form-check-input:checked {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .form-check-input:checked~.form-check-label {
+            background-color: red;
             color: white;
         }
 
-        .product_add_to_bag:hover .bi-arrow-right {
-
-            display: block;
-            transition: all 0.5s ease-in;
-        }
-
-        .product_payment {
-            background-color: rgb(246, 225, 120);
-        }
-
-        .product_payment:hover {
-            background-color: rgba(247, 188, 78, 0.944);
-
-        }
-
-        .product_payment:hover a {
-            color: black;
-
-        }
-
-
-
-        .curser_pointer {
-
-            cursor: pointer;
-        }
-
-        .size_notyfy_box {
-
-
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 100px;
-            background-color: rgba(0, 0, 0, 0.623);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            display: none;
-        }
-
-        .notyfybox {
-
-            background-color: rgb(246, 242, 242);
-
-            width: 60%;
-            height: 70vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .notyfybox input {
-
-            width: 70%;
-            height: 7vh;
-            border: 1px solid black;
-            margin-top: 2rem;
-            text-align: center;
-
-        }
-
-        .notyfybox input:focus {
-
-            outline: none;
-        }
-
-
-        .notyfybox button {
-
-            width: 70%;
-            height: 7vh;
-            border: none;
-            outline: none;
-            margin-top: 0.9rem;
-            font-size: 0.9rem;
-            font-weight: bolder;
-            font-family: 'poppins', sans-serif;
-            background-color: #d5d1d1;
-            cursor: pointer;
-
-        }
-
-
-        .notyfy_box_closer {
-
-
-            position: relative;
-            bottom: 40px;
-            left: 280px;
-            cursor: pointer;
-
-        }
-
-        .notyfy_box_closer .bi:hover {
-
-            color: red;
-
-            transform: rotate(30deg);
-        }
-
-
-
-        @media screen and (min-width: 1200px) and (max-width: 1439px) {
-
-
-            .notyfy_box_closer {
-
-
-                position: relative;
-                bottom: 110px;
-                left: 400px;
-                cursor: pointer;
-
-
-            }
-
+        .product-size .form-select {
+            border-radius: 0.25rem;
+            border-color: #ddd;
         }
     </style>
-
 </head>
 
 <body>
 
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Example of a product card -->
+            <div class="col-md-12 mb-4">
+                <div class="product-card card-large">
+                    <div class="product-image">
+                        <img src="<%= product_data.product_image %>" alt="Product Image" class="img-fluid">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="mb-3">
+                            <%= product_data.product_name %>
+                        </h3>
+                        <p class="mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora provident
+                            tenetur atque magni cupiditate quisquam quibusdam voluptate sequi amet voluptatibus delectus
+                            laborum neque, dolorem dolores. Nostrum, numquam eum? Ullam, adipisci?</p>
+                        <h4 class="mb-4">$<%= product_data.product_price %>
+                        </h4>
 
-    <section class="Featured_product">
+                        <!-- Product Form -->
+                        <form>
+                            <div class="mb-3 product-size">
+                                <label for="size" class="form-label">Size</label>
+                                <select id="size" class="form-select">
+                                    <option value="s">S</option>
+                                    <option value="m">M</option>
+                                    <option value="l">L</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="quantity" class="form-label">Quantity</label>
+                                <input type="number" id="quantity" class="form-control" min="1" value="1">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Color</label><br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="red" name="color" value="red">
+                                    <label class="form-check-label" for="red">Red</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="black" name="color" value="black">
+                                    <label class="form-check-label" for="black">Black</label>
+                                </div>
+                            </div>
+
+                            <!-- Container for buttons and link -->
+                            <div class="d-flex align-items-center">
+                                <!-- Link styled as a button -->
+                                
+                                <a href="/user/product/order?p_name=<%= encodeURIComponent(data.product_name) %>&p_img=<%= encodeURIComponent(data.product_image) %>&p_price=<%= encodeURIComponent(data.product_price) %>&p_gender=female&p_color=<%= encodeURIComponent(data.product_color) %>&p_id=ghy567"
+                                    class="btn btn-success me-2">
+                                    Order Place
+                                 </a>
+
+                                
+
+                                <button type="button" class="btn btn-secondary me-2">Add to Cart</button>
+
+                                <!-- Secondary button -->
+                                <button type="button" class="btn btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#sizeChartModal">
+                                    Size Chart
+                                </button>
 
 
+                            </div>
 
-        <div class="Featured_hading" style="font-size: 2rem; font-family:poppins,sans-serif;font-weight: bolder;">
-            FEATURED PRODUCT</div>
-
-
-        <div class="product_contaner">
-
-            <div class="product_image">
-
-
-                <img src="<%= data.product_image %>" alt="" id="product_image">
-
-
-
+                        </form>
+                    </div>
+                </div>
             </div>
-
-
-
-
-            <div class="product_detail">
-
-
-                <div class="product_link"><a href="">
-                        <%= data.product_name %>
-                    </a></div>
-
-
-                <div class="product_star"><i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i
-                        class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-half"></i>
-                </div>
-
-
-
-                <div class="product_price" style="font-size: 1.1rem;font-weight: bolder;">Price: $ <%= data.product_price
-                        %>
-                </div>
-
-
-                <div class="product_color" style="font-size:12px;font-weight: bolder;font-family: sans-serif;">
-                    Color: <span id="product_color">
-                        <%= data.product_color %>
-                    </span></div>
-
-
-                <div class="product_color_panel">
-
-                    <div class="color_circle cursor_pointer" style=`background-color: <%=data.product_color %>;`
-                        id="Olivegreen"></div>
-
-
-
-
-                </div>
-
-
-                <div class="product_size" style="font-size:12px;font-family:poppins,sans-serif;font-weight: bolder;">
-                    Size: <span id="product_size">S</span></div>
-
-
-                <div class="product_size_panel">
-
-
-                    <div class="product_panel_box" id="XS">XS</div>
-                    <div class="product_panel_box" id="S">S</div>
-                    <div class="product_panel_box dis" id="M">M <i class="bi bi-envelope-fill"></i></div>
-                    <div class="product_panel_box" id="L">L</div>
-                    <div class="product_panel_box dis" id="XL">XL <i class="bi bi-envelope-fill"></i></div>
-
-                </div>
-
-
-
-                <div class="product_add_to_bag"><a href="">ADD TO BAG</a> <i class="bi bi-arrow-right"
-                        style="font-size: 1.3rem;margin-left: 1rem;"></i></div>
-
-                        <div class="product_add_to_bag product_payment">
-                            <a href="product/order/?p_name=<%= encodeURIComponent(data.product_name) %>&p_img=<%= encodeURIComponent(data.product_image) %>&p_price=<%= encodeURIComponent(data.product_price) %>&p_gender=female&p_color=<%= encodeURIComponent(data.product_color) %>&p_id=ghy567">
-                              BUY WITH PAYPAL
-                            </a>
-                          </div>
-                          
-
-                <div class="product_size_chat" style="font-size: 12px;">SIZE CHART</div>
-
-
-                <div class="product_review" style="font-family:poppins,sans-serif;">Steele's Lena Dress features a
-                    smocked bust, off the shoulder sleeves with eyelet design, and mini cut skirt with raw hem.</div>
-
-
-
-            </div>
-
-
-
-
-
-
         </div>
+    </div>
 
-
-
-        <div class="size_notyfy_box" heidden>
-
-
-
-            <div class="notyfybox">
-
-                <div class="notyfy_box_closer"><i class="bi bi-x" style="font-size:1.8rem"></i></div>
-
-                <div style="font-size: 1.3rem;font-weight: 700; font-family:poppins,sans-serif;">This product is
-                    currently out of stock</div>
-
-                <div
-                    style="width: 49%; text-align: center; font-size:0.9rem;font-family:poppins,sans-serif;line-height: 21px;margin-top:1rem ;color:#807b7b">
-                    Register so we can email you as soon as its becomes available!</div>
-
-                <input type="email" placeholder="your email">
-
-                <button><i class="bi bi-envelope-fill"></i> NOITIFY ME</button>
-
-                <div style="width: 70%; margin-top: 2rem;line-height: 20px;font-size:0.8rem;color:#5d5b5b;">Yes, I would
-                    like to be notified by email about this product, and to receive emails from SaleHub
-                    with the latest deals, sales, and updates. I agree to SaleHubs Terms of Service and Privacy Policy
+    <!-- Size Chart Modal -->
+    <div class="modal fade" id="sizeChartModal" tabindex="-1" aria-labelledby="sizeChartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="sizeChartModalLabel">Size Chart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
+                <div class="modal-body">
+                    <p>Here is a detailed size chart for the product:</p>
+                    <!-- You can replace this with a real size chart image or table -->
+                    <img src="size-chart.jpg" alt="Size Chart" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
-
-
         </div>
+    </div>
 
-
-
-
-
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script>
-
-        // feacureed_product.js
-
-
-
-
-
-        let color_circles = document.querySelectorAll(".color_circle");
-
-        let product_color = document.getElementById("product_color")
-
-        let product_price = document.querySelector(".product_price")
-
-        let product_image = document.querySelector("#product_image");
-
-        //console.log(product_image);
-
-        //console.log(color_circles);
-
-
-
-
-
-
-
-        let product_panel_box = document.querySelectorAll(".product_panel_box");
-
-        let product_size = document.querySelector("#product_size")
-
-        console.log(product_size);
-
-        console.log(product_panel_box);
-
-
-
-        Array.from(product_panel_box).forEach((element, index) => {
-
-
-            element.addEventListener('click', function (e) {
-
-                product_size.innerHTML = e.target.id
-                
-
-            })
-        });
-
-
-        let close_data = document.querySelector(".notyfy_box_closer")
-
-        close_data.addEventListener('click', function () {
-
-            let pre = close_data.parentElement
-
-            pre.parentElement.style.display = "none"
-
-        })
-
-
-        let dis_size = document.querySelectorAll(".dis")
-
-        dis_size.forEach((element, index) => {
-            element.addEventListener('click', function (e) {
-
-                if (e.target.id == "M" || e.target.id == "XL") {
-
-                    let pre = close_data.parentElement;
-                    pre.parentElement.style.display = "flex";
-
-                } else {
-                    alert("something wrong");
-                }
-            });
-        });
-
-
-
-    </script>
-
+ <!-- Bootstrap JS and dependencies -->
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+ integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+ crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+ integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+ crossorigin="anonymous"></script>
 
 </body>
 

@@ -1,25 +1,626 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>shoes salling website</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
 </head>
+
 <body>
-    <h1>sale hub web</h1>
-    <div class="product_btn">
-        <img src="https://images.pexels.com/photos/19090/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-        <p>puma shoes</p>
-    
-        <button>
-            <a href="product/wish/?p_name=levis Western denim jacket &p_img=https://shorturl.at/1aOqW&p_price=55.99&p_gender=female&p_color=gray&p_id=ghy567">wishlist</a>
-        </button>
-        
-        <button>
-            <a href="product/pd/?p_name=levis Western denim jacket &p_img=https://shorturl.at/1aOqW&p_price=55.99&p_gender=female&p_color=gray&p_id=ghy567">buynow</a>
-        </button>
+
+  <!-- navbar start -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand font-weight-normal " href="index.html"><span class="display-6 fw-bold">PLASHOE</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav m-lg-4 d-lg-flex gap-3">
+          <li class="nav-item font-weight-normal ">
+            <a class="nav-link active" aria-current="page" href="man.html">MEN</a>
+          </li>
+
+          <li class="nav-item font-weight-normal ">
+            <a class="nav-link text-dark" aria-current="page" href="women.html">WOMAN</a>
+          </li>
+
+
+          <li class="nav-item font-weight-normal ">
+            <a class="nav-link text-dark" aria-current="page" href="shop.html">COLLECTION</a>
+          </li>
+
+          <li class="nav-item font-weight-normal ">
+            <a class="nav-link text-dark" aria-current="page" href="lookbook.html">LOOKBOOK</a>
+          </li>
+
+          <li class="nav-item font-weight-normal ">
+            <a class="nav-link text-dark" aria-current="page" href="#">SALE</a>
+          </li>
+
+          <li class="nav-item font-weight-normal ">
+            <a class="nav-link text-dark" aria-current="page" href="#">OURSTORY</a>
+          </li>
+
+          <li class="nav-item font-weight-normal ">
+            <a class="nav-link text-dark" aria-current="page" href="contact.html">CONTACT</a>
+          </li>
+
+        </ul>
+      </div>
+
+      <ul class="navbar-nav py-4 d-none d-lg-flex">
+
+        <li class="nav-item px-1"><a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+              class="bi bi-search h4"></i></a></li>
+        <li class="nav-item px-1"><a class="nav-link" href=""><i class="bi bi-person h4"></i></a></li>
+
+        <li class="nav-item px-1"><a class="nav-link" href=""><i class="bi bi-bag h4"></i></a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- navbar end -->
+
+
+
+  <!-- shoes_display_start -->
+
+  <section class="shoes_display w-100  ">
+
+    <div class="d-flex flex-column m-lg-5 h-75 justify-content-center gap-3 m-4">
+      <div class="display-3 text-white fw-bolder ">LOVE the Planet </div>
+      <div class="display-3 text-white fw-bolder">WE WALK ON</div>
+      <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, sint.</p>
+
+      <div class="d-lg-flex  gap-4  d-none">
+        <button type="button" class="btn btn-light">SHOP MAN</button>
+        <button type="button" class="btn btn-light">SHOP WOMAN</button>
+      </div>
+
+      <div class="  d-sm-block d-lg-none d-flex flex-column gap-4">
+        <button type="button" class="btn btn-light">SHOP MAN</button>
+        <button type="button" class="btn btn-light">SHOP WOMAN</button>
+      </div>
+
     </div>
 
-</script>
+  </section>
+
+  <!-- shoes_display_end -->
+
+
+
+  <!-- logo_display_start -->
+
+  <section class="logo_display">
+
+
+    <div class="parent">
+      <div class="div1"><img
+          src="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-featured-in-logo-5.svg"
+          alt="" srcset=""></div>
+      <div class="div2"><img
+          src="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-featured-in-logo-4.svg"
+          alt="" srcset=""></div>
+      <div class="div3"><img
+          src="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-featured-in-logo-3.svg"
+          alt="" srcset=""></div>
+      <div class="div4"><img
+          src="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-featured-in-logo-2.svg"
+          alt="" srcset=""></div>
+      <div class="div5"><img
+          src="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-featured-in-logo-1.svg"
+          alt="" srcset=""></div>
+    </div>
+
+  </section>
+
+  <!-- logo_display_end -->
+
+
+  <hr>
+
+
+
+  <!-- shoes_about start -->
+
+  <section class=" shoes_about d-flex justify-content-around flex-wrap">
+
+    <div class="about_us_img_div">
+      <img
+        src="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-home-about-image.jpg"
+        alt="" srcset="" style="width: 100%; height:100%;">
+    </div>
+
+    <div class=" about_us_text d-flex flex-column justify-content-center align-content-center  ">
+      <div class="fs-4 mb-4 text-warning">About Us</div>
+      <div class="display-5 fw-bold">Selected materials</div>
+      <div class="display-5 fw-bold">designed for comfort</div>
+      <div class="display-5 fw-bold">and sustainability</div>
+      <p class="fs-5 mt-4 text-secondary">Nullam auctor faucibus ridiculus dignissim sed et auctor sed eget auctor
+        nec sed elit nunc, magna non urna amet ac neque ut quam enim pretium risus gravida ullamcorper
+        adipiscing at ut magna.</p>
+      <a href="" class="text-decoration-none">
+        <p class="fs-6 mt-4 fw-bold text-dark" style="border-bottom: 2px solid orange;width: fit-content;">READ
+          MORE</p>
+      </a>
+    </div>
+
+
+  </section>
+
+
+  <!-- shoes_about end -->
+
+
+
+  <!-- 
+shoes_banifits start -->
+
+  <section class="shoes_banifits mt-5 pb-lg-5 m-lg-4 "
+    style="background-color: rgba(211, 206, 206, 0.726); height: fit-content;">
+
+    <div class="d-flex flex-column justify-content-center align-content-center text-center ">
+      <div class="fs-1 fw-bold mb-4 pt-5">See how your shoes are made</div>
+
+      <p class="text-secondary">Urna, felis enim orci accumsan urna blandit egestas mattis egestas feugiat viverra
+        ornare donec </p>
+      <p class="text-secondary">adipiscing semper aliquet integer risus leo volutpat nulla enim ultrices</p>
+    </div>
+
+    <div class="shoes_banifit_grid m-lg-0 m-4">
+
+
+      <div class="parent_banifit mt-lg-5 m-2">
+        <div class="div1">
+
+          <div class="h-100 d-flex flex-column justify-content-lg-between m-lg-5">
+            <div>
+              <p class="text-warning">01</p>
+              <p class="fs-3 fw-bold">Pet canvas </p>
+              <p class="fs-5 text-secondary">Morbi eget bibendum sit adipiscing morbi ac nisl vitae maecenas nulla
+                cursus </p>
+            </div>
+
+            <div>
+              <p class="text-warning">02</p>
+              <p class="fs-3 fw-bold">Algae foam + vegan glue </p>
+              <p class="fs-5 text-secondary">Enim tincidunt donec vulputate magna pharetra mattis in </p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="div2 shoes_banifit_img_div"><img
+            src="https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-how-shoes-are-made-image.png"
+            alt="" srcset="" width="100%" class="h-auto"></div>
+
+
+
+        <div class="div3">
+
+          <div class="h-100 d-flex flex-column justify-content-lg-between m-lg-5">
+            <div>
+              <p class="text-warning">03</p>
+              <p class="fs-3 fw-bold">Organic cotton </p>
+              <p class="fs-5 text-secondary"> A vel ipsum, sed dignissim elementum ultrices amet
+              </p>
+            </div>
+
+            <div>
+              <p class="text-warning">04</p>
+              <p class="fs-3 fw-bold">Upcycled plastic bottles </p>
+              <p class="fs-5 text-secondary">Pellentesque viverra amet netus facilisis amet felis odio tortor orci
+                cursus est </p>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </section>
+
+  <!-- shoes_banifits end -->
+
+
+
+
+  <!-- shoes_product_best_saller_start -->
+  <section class="w-100">
+    
+
+  <div class="d-flex justify-content-between align-content-center py-4 flex-lg-row flex-column gap-lg-0 gap-4">
+    <div class="fs-3 fw-bold m-lg-4">Our Best Seller</div>
+    <div class="fs-5 w-auto fw-bold m-lg-4" style="border-bottom: 2px solid orange;">View All Best Sellers</div>
+  </div>
+  
+  <div class="product_card_wrapper m-lg-5 ">
+    <div class="men_product_card">
+      <% shoes.forEach(function(shoe) { %>
+        <div class="div1">
+          <div class="cont">
+              <div class="product-card">
+                  <div class="product-card__image">
+                      <img src="<%= shoe.image_url %>" alt="Red Nike Shoes">
+                  </div>
+                  <div class="product-card__info">
+                      <h2 class="product-card__title"><%= shoe.title %></h2>
+                      <p class="product-card__description"><%= shoe.description %></p>
+                      <div class="product-card__price-row">
+                          <span class="product-card__price">₹<%= shoe.price_in_inr %></span>
+                          
+                          <a href="product/wish/?p_name=<%= shoe.title %> &p_img=<%= shoe.image_url %>&p_price=<%= shoe.price_in_inr %>&p_gender=female&p_color=gray&p_id=ghy567"><button class="product-card__btn"> Add Wishlist</button></a>
+
+
+                          <a href="product/pd/?p_name=<%= shoe.title %> &p_img=<%= shoe.image_url %>&p_price=<%= shoe.price_in_inr %>&p_gender=female&p_color=gray&p_id=ghy567"><button class="product-card__btn">Buy Now</button></a>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+        <% }); %>
+
+    </div>
+  </div>
+    
+  </section>
+
+  <!-- shoes_product_best_saller_end -->
+
+
+
+
+
+  <!-- man_and_woman_section_start -->
+
+  <section class="man-and-woman-case d-flex justify-content-evenly gap-2 flex-row align-content-center">
+    <div class="item justify-content-center align-content-center"
+      style="background: url(https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-shop-men-image-thumbnail.jpg);">
+      <div class="content d-flex justify-content-center align-content-center flex-column">
+        <p class="text-center fs-1 text-white">Man</p>
+        <button type="button" class="btn btn-outline-secondary btn-lg text-white border-2 border-white">SHOP
+          MAN</button>
+      </div>
+    </div>
+    <div class="item justify-content-center align-content-center"
+      style="background: url(https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-shop-women-image-tumbnail.jpg);background-size: cover; background-position: center;">
+      <div class="content d-flex justify-content-center align-content-center flex-column">
+        <p class="text-center fs-1 text-white">Woman</p>
+        <button type="button" class="btn border-2 border-white btn-lg text-white fs-6 btn-outline-secondary">SHOP
+          WOMAN</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- man_and_woman_section_end -->
+
+
+
+
+  <!-- castomar_review_start -->
+
+  <section class="mt-lg-5">
+
+    <div class="display-4 mb-4  text-center fw-bold  ">Our Customers speak for us</div>
+
+    <div class="outerdiv">
+      <div class="innerdiv">
+        <!-- div1 -->
+        <div class="div1_review eachdiv">
+          <div class="userdetails">
+            <div class="imgbox">
+              <img
+                src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-daniel.jpg"
+                alt="">
+            </div>
+            <div class="detbox">
+              <p class="name">Daniel Clifford</p>
+              <p class="designation">Verified Graduate</p>
+            </div>
+          </div>
+          <div class="review">
+            <h4>I received a job offer mid-course, and the subjects I learned were current, if not more so, in the
+              company I joined. I honestly feel I got every penny’s worth.</h4>
+            <p>“ I was an EMT for many years before I joined the bootcamp. I’ve been looking to make a transition and
+              have heard some people who had an amazing experience here. I signed up for the free intro course and found
+              it incredibly fun! I enrolled shortly thereafter. The next 12 weeks was the best - and most grueling -
+              time of my life. Since completing the course, I’ve successfully switched careers, working as a Software
+              Engineer at a VR startup. ”</p>
+          </div>
+        </div>
+        <!-- div2 -->
+        <div class="div2_review eachdiv">
+          <div class="userdetails">
+            <div class="imgbox">
+              <img
+                src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-jonathan.jpg"
+                alt="">
+            </div>
+            <div class="detbox">
+              <p class="name">Jonathan Walters</p>
+              <p class="designation">Verified Graduate</p>
+            </div>
+          </div>
+          <div class="review">
+            <h4>The team was very supportive and kept me motivated</h4>
+            <p>“ I started as a total newbie with virtually no coding skills. I now work as a mobile engineer for a big
+              company. This was one of the best investments I’ve made in myself. ”</p>
+          </div>
+        </div>
+        <!-- div3 -->
+        <div class="div3_review eachdiv">
+          <div class="userdetails">
+            <div class="imgbox">
+              <img
+                src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-kira.jpg"
+                alt="">
+            </div>
+            <div class="detbox">
+              <p class="name dark">Kira Whittle</p>
+              <p class="designation dark">Verified Graduate</p>
+            </div>
+          </div>
+          <div class="review dark">
+            <h4>Such a life-changing experience. Highly recommended!</h4>
+            <p>“ Before joining the bootcamp, I’ve never written a line of code. I needed some structure from
+              professionals who can help me learn programming step by step. I was encouraged to enroll by a former
+              student of theirs who can only say wonderful things about the program. The entire curriculum and staff did
+              not disappoint. They were very hands-on and I never had to wait long for assistance. The agile team
+              project, in particular, was outstanding. It took my learning to the next level in a way that no tutorial
+              could ever have. In fact, I’ve often referred to it during interviews as an example of experience. It
+              certainly helped me land a job as a full-stack 100% recommend! ”</p>
+          </div>
+        </div>
+        <!-- div4 -->
+        <div class="div4_review eachdiv">
+          <div class="userdetails">
+            <div class="imgbox">
+              <img
+                src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-jeanette.jpg"
+                alt="">
+            </div>
+            <div class="detbox">
+              <p class="name dark">Jeanette Harmon</p>
+              <p class="designation dark">Verified Graduate</p>
+            </div>
+          </div>
+          <div class="review dark">
+            <h4>An overall wonderful and rewarding experience</h4>
+            <p>“ Thank you for the wonderful experience! I now have a job I really enjoy, and make a good living while
+              doing something I love. ”</p>
+          </div>
+        </div>
+        <!-- div5 -->
+        <div class="div5_review eachdiv">
+          <div class="userdetails">
+            <div class="imgbox">
+              <img
+                src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg"
+                alt="">
+            </div>
+            <div class="detbox">
+              <p class="name">Patrick Abrams</p>
+              <p class="designation">Verified Graduate</p>
+            </div>
+          </div>
+          <div class="review">
+            <h4>Awesome teaching support from TAs who did the bootcamp themselves. Getting guidance from them and
+              learning from their experiences was easy.</h4>
+            <p>“ The staff seem genuinely concerned about my progress which I find really refreshing. The program gave
+              me the confidence necessary to be able to go out in the world and present myself as a capable junior
+              developer. The standard is above the rest. You will get the personal attention you need from an incredible
+              community of smart and amazing people. ”</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+  <!-- castomar_review_end -->
+
+
+
+  <!-- shoes_display_end_start -->
+
+  <section class="shoes_display w-100  d-flex flex-column justify-content-center align-content-center "
+    style="background: url(https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-cta-image-bg.jpg);background-size: cover; background-position: center;">
+
+    <div class="d-flex flex-column m-lg-5 h-75 justify-content-center m-auto gap-3 m-4 w-100 text-center">
+      <div class="display-3 text-white fw-bolder ">Better for People </div>
+      <div class="display-3 text-white fw-bolder ">and</div>
+      <div class="display-3 text-white fw-bolder">the Planet</div>
+      <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, sint.</p>
+
+      <div class="d-lg-flex  gap-4 justify-content-center align-content-center d-none">
+        <button type="button" class="btn btn-light btn-lg fs-6 fw-bold">SHOP MAN</button>
+        <button type="button" class="btn btn-light btn-lg fs-6 fw-bold">SHOP WOMAN</button>
+      </div>
+
+      <div class="  d-sm-block d-lg-none d-flex flex-column gap-4 w-75 m-auto">
+        <button type="button" class="btn btn-light">SHOP MAN</button>
+        <button type="button" class="btn btn-light">SHOP WOMAN</button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- shoes_display_end_end -->
+
+
+
+
+  <!-- dalivary_advantage_start -->
+
+  <div class="parent_dalivary m-lg-5 text-center mt-5">
+    <div class="div1"><i class="bi bi-lock-fill fs-4"></i> <span class="fs-4 fw-bold">Secure Payment</span></div>
+    <div class="div2"><i class="bi bi-truck-front-fill fs-4"></i> <span class="fs-4 fw-bold">Express Shipping</span>
+    </div>
+    <div class="div3"><i class="bi bi-arrow-return-right fs-4"></i> <span class="fw-bold fs-4">Free Return</span></div>
+  </div>
+
+  <hr>
+
+  <!-- dalivary_advantage_end -->
+
+
+
+  <!-- footer_start -->
+
+  <!-- Remove the container if you want to extend the Footer to full width. -->
+  <div class="container my-3 w-100 my-lg-5">
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-white" style="background-color:white">
+      <!-- Section: Social media -->
+      <section class="d-flex justify-content-between p-4" style="background-color:black;">
+        <!-- Left -->
+        <div class="me-4">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        <!-- Left -->
+
+        <!-- Right -->
+        <div>
+          <a href="" class="text-white me-4">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="bi bi-twitter-x"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="bi bi-google"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="bi bi-instagram"></i>
+          </a>
+
+        </div>
+        <!-- Right -->
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Section: Links  -->
+      <section class="text-dark">
+        <div class="container text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold">Company name</h6>
+              <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px" />
+              <p>
+                Here you can use rows and columns to organize your footer
+                content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit.
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-dark">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold">Products</h6>
+              <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px" />
+              <p>
+                <a href="#!" class="text-dark">MDBootstrap</a>
+              </p>
+              <p>
+                <a href="#!" class="text-dark">MDWordPress</a>
+              </p>
+              <p>
+                <a href="#!" class="text-dark">BrandFlow</a>
+              </p>
+              <p>
+                <a href="#!" class="text-dark">Bootstrap Angular</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold">Useful links</h6>
+              <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px" />
+              <p>
+                <a href="#!" class="text-dark">Your Account</a>
+              </p>
+              <p>
+                <a href="#!" class="text-dark">Become an Affiliate</a>
+              </p>
+              <p>
+                <a href="#!" class="text-dark">Shipping Rates</a>
+              </p>
+              <p>
+                <a href="#!" class="text-white">Help</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold">Contact</h6>
+              <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px" />
+              <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+              <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
+              <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+              <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        2024 visit website:
+        <a class="text-white" href="https://mdbootstrap.com/">plashoe.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+  </div>
+  <!-- End of .container -->
+
+  <!-- footer_end -->
+
+
+</body>
 
 </html>

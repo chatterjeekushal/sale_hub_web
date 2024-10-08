@@ -1,61 +1,74 @@
-
-const express = require('express')
-
-const mongoose = require('mongoose')
-
-const User = require("../model/user.model.js")
+const mongoose = require('mongoose');
+const uuid = require('uuid');
+const User = require('../model/user.model.js'); // Adjust path as needed
 
 const order_schema = new mongoose.Schema({
-
-    userid: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        required: true
+    user_detale: {
+        type:Object
     },
 
-    products: [
+    products: 
         {
             productid: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Product',
-                required: true
+                type: String,
+                
             },
             productname: {
-                type: String
+                type: String,
+                
             },
             productsize: {
-                type: String
+                type: String,
+                
             },
-            productimage:{
-                type:String
+            productimage: {
+                type: String,
+                
             },
             quantity: {
                 type: Number,
-                required: true,
-                min: 1
+            
             },
-
             price: {
                 type: Number,
-                required: true
+                
             }
+        },
+    
 
+    price_detale: {
+        price: {
+            type: Number,
+            
+        },
+        platform_fee: {
+            type: Number,
+            
+        },
+        delivery_chages: {
+            type: String,
+            
+        },
+        total_price: {
+            type: Number,
+            
         }
-    ],
-
-    totalprice: {
-        type: Number,
-        required: true
     },
 
     status: {
-        type: Boolean,
-
-        payment: Boolean,
-
-        delivery: Boolean
-    },
-
-}, { timestamps: true })
+        type: {
+            type: Boolean,
+            
+        },
+        payment: {
+            type: Boolean,
+            
+        },
+        delivery: {
+            type: Boolean,
+            
+        }
+    }
+}, { timestamps: true });
 
 module.exports = mongoose.model('Order', order_schema);

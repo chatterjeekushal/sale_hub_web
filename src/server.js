@@ -5,12 +5,14 @@ const mongoose = require("mongoose");
 const user_route = require("./routes/user.routes.js");
 const product_route = require("./routes/product.routes.js");
 const cookie = require('cookie-parser');
-const nodemon =require("nodemon")
+
 
 
 
 const app = express();
 const PORT = 3000;
+
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -21,7 +23,8 @@ app.use(cookie());
 app.use('/user', user_route);
 app.use('/user', product_route);
 
-app.use('/public', express.static('public'));
+
+
 
 
 

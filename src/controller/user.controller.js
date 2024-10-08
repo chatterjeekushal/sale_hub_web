@@ -19,6 +19,9 @@ const nodemailer = require("nodemailer");
 const Otp = require("../model/otp.model.js")
 const { error } = require('console')
 
+const shoesData = require("../webjson/shoes.json.js")
+const { request } = require('http')
+
 
 
 
@@ -32,7 +35,7 @@ const GanarateToken = async (userid) => {
 
         const refreshToken = await userexist.refrashToken()
 
-        
+
 
         userexist.RefToken = refreshToken
 
@@ -84,15 +87,6 @@ const sendVerifyMail = async (name, email, user_id, otp_detail) => {
 
 // Example usage:
 // sendVerifyMail('John Doe', 'johndoe@example.com', '123456');
-
-
-
-
-
-
-
-
-
 
 
 
@@ -150,7 +144,7 @@ const ragister_user = async (req, res) => {
                 .status(200)
                 .cookie("accessToken", accessToken, options)
                 .cookie("refreshToken", refreshToken, options)
-                .render(path.resolve('./views/otp.ejs'),{ formAction: actionUrl })
+                .render(path.resolve('./views/otp.ejs'), { formAction: actionUrl })
 
         }
     } catch (error) {
@@ -204,7 +198,7 @@ const get_web = async (req, res) => {
 
     const userid = await User.findById(req.decodeduser._id);
 
-    res.render(path.resolve('./views/index.ejs'), { userid })
+    res.render(path.resolve('./views/index.ejs'), { userid, shoes: shoesData })
 }
 
 
@@ -292,7 +286,7 @@ const login_user = async (req, res) => {
         const { accessToken, refreshToken } = await GanarateToken(userexit._id)
 
 
-        
+
 
 
         // send cookie
@@ -336,37 +330,37 @@ const forgot_pass_email_send = async (req, res) => {
 
     try {
 
-let email=req.body.forgot_email
+        let email = req.body.forgot_email
 
-console.log(`forgot_pass_email ${email}`);
+        console.log(`forgot_pass_email ${email}`);
 
-const varify_forgot_email= await User.findOne({email})
+        const varify_forgot_email = await User.findOne({ email })
 
-if(!varify_forgot_email){
+        if (!varify_forgot_email) {
 
-    console.log("your email address not ragister");
-    
-}
+            console.log("your email address not ragister");
 
-const otp_detale = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false });
+        }
 
-console.log(otp_detale, 'otp is');
+        const otp_detale = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false });
 
-await sendVerifyMail(varify_forgot_email.username,varify_forgot_email.email,"hj",otp_detale);
+        console.log(otp_detale, 'otp is');
+
+        await sendVerifyMail(varify_forgot_email.username, varify_forgot_email.email, "hj", otp_detale);
 
 
-const otp = new Otp({ email: email, otp: otp_detale })
+        const otp = new Otp({ email: email, otp: otp_detale })
 
-const otp_data = await otp.save()
+        const otp_data = await otp.save()
 
-const actionUrl = '/user/forgot_pass_otp_varify';
+        const actionUrl = '/user/forgot_pass_otp_varify';
 
-res.render(path.resolve('./views/otp.ejs'), { formAction: actionUrl })
+        res.render(path.resolve('./views/otp.ejs'), { formAction: actionUrl })
 
 
     } catch (error) {
 
-console.log("forgos pass email send eror ",error);
+        console.log("forgos pass email send eror ", error);
 
 
     }
@@ -374,7 +368,7 @@ console.log("forgos pass email send eror ",error);
 
 
 
-const forgot_pass_otp_varify= async(req,res)=>{
+const forgot_pass_otp_varify = async (req, res) => {
 
     let otp = req.body.otp;
 
@@ -395,24 +389,24 @@ const forgot_pass_otp_varify= async(req,res)=>{
 }
 
 
-const forgot_pass_reset_password=async(req,res)=>{
+const forgot_pass_reset_password = async (req, res) => {
 
     let { email, update_password } = req.body;
 
 
 
-    console.log(email,"email");
-    console.log(update_password,"password");
+    console.log(email, "email");
+    console.log(update_password, "password");
 
     // Hash the new password
-    const hashedPassword = await bcrypt.hash(update_password,10);
-        
+    const hashedPassword = await bcrypt.hash(update_password, 10);
+
     // Log the hashed password (not recommended for production)
     console.log(hashedPassword, "hashed password");
 
-    const filter={email:email};
+    const filter = { email: email };
 
-    const update_pass= await User.findOneAndUpdate(filter,{$set:{password:hashedPassword}},{new:true});
+    const update_pass = await User.findOneAndUpdate(filter, { $set: { password: hashedPassword } }, { new: true });
 
     res.render(path.resolve('./views/login.ejs'))
 }
@@ -453,6 +447,7 @@ const user_logout = async function (req, res) {
 
 
 
+// phone pe pement getway function
 
 
 
@@ -472,4 +467,9 @@ const user_logout = async function (req, res) {
 
 
 
-module.exports = { ragister_user, login_user, user_logout, otp_varify, get_web, forgot_pass,forgot_pass_email_send,forgot_pass_otp_varify ,forgot_pass_reset_password}
+
+
+
+
+
+module.exports = { ragister_user, login_user, user_logout, otp_varify, get_web, forgot_pass, forgot_pass_email_send, forgot_pass_otp_varify, forgot_pass_reset_password, }

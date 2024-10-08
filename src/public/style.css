@@ -1,0 +1,677 @@
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.shoes_display{
+    
+height: 85vh;
+background: url(https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-hero-image-bg.jpg);
+
+background-position: center;
+
+background-size: cover;
+
+}
+
+
+
+/* logo_degine */
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 8px;
+}
+
+.about_us_text{
+
+    width: 50%;
+}
+
+.about_us_img_div{
+
+    width: 35vw;
+    height: auto;
+}
+
+
+.parent_banifit {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 8px;
+}
+
+
+.card_image{
+    overflow: hidden;
+    
+    height:50vh;
+}
+
+.card img:hover{
+transform: scale(1.1);
+width: 100%;
+height: 100%;
+transition: all 0.5s ease-in;
+
+}
+
+.man-and-woman-case {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .item {
+    width: 46%;
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .content {
+    width: 25%;
+    margin: auto;
+  }
+
+
+  .card_image {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .quick-view-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black; /* Button color */
+    color: white; /* Text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10; /* Make sure it's above the image */
+  }
+  
+  .card_image:hover .quick-view-btn {
+    opacity: 1;
+  }
+  
+
+
+
+.outerdiv
+{
+	width: 100%;
+    min-height: 100vh;
+    background: #EDF2F8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.innerdiv
+{
+	transform: scale(0.9);
+	margin: 1rem;
+	display: grid;
+	grid-gap: 1.5rem;
+	grid-template-rows: repeat(2,22rem);
+	grid-template-columns: repeat(4,17rem);
+}
+.eachdiv
+{
+	padding: 1rem 2rem;
+    border-radius: 0.8rem;
+    box-shadow: 5px 5px 20px #6d6b6b6b;
+    color: white;
+}
+.div1_review
+{
+	background: #733FC8;
+    grid-column: 1/3;
+    grid-row: 1/2;
+    background-image: url(https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-position-x: 25rem;
+}
+.div2_review
+{
+	background:#49556B;
+    grid-column: 3/4;
+    grid-row: 1/2;
+}
+.div3_review
+{
+	background: white;
+    grid-column: 4/5;
+    grid-row: 1/3;
+    color: black;
+}
+.div4_review
+{
+	background: white;
+	grid-column: 1/2;
+    grid-row: 2/3;
+    color: black;
+}
+.div5_review
+{
+	background: #18202D;
+	grid-column: 2/4;
+    grid-row: 2/3;
+}
+.userdetails
+{
+	display: flex;
+}
+.imgbox
+{
+	margin-right: 1rem;
+}
+.imgbox img
+{
+	border-radius: 50%;
+	width: 2rem;
+	border: 2px solid #cec5c5;
+}
+.detbox
+{
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.detbox p
+{
+	margin: 0;
+}
+.detbox .name
+{
+	color: hsl(0, 0%, 81%);
+    font-size: 0.9rem;
+    margin-bottom: 0.1rem;
+    font-weight: 600;
+}
+.detbox .name.dark
+{
+	color: #49505A;
+}
+.detbox .designation
+{
+	color: hsl(0, 0%, 81%);
+    opacity: 50%;
+    font-size: 0.8rem;
+}
+.detbox .designation.dark
+{
+	color: #49505A;
+}
+.review h4
+{
+	font-size: 1.4rem;
+	color: #F3DEFF;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
+}
+.review.dark h4{
+	color:#4B5258;
+}
+.review p
+{
+	font-size: 0.95rem;
+    color: #F3DEFF;
+    font-weight: 500;
+    opacity: 50%;
+    line-height: 1.5;
+}
+.review.dark p{
+	color: #0e0e0e;
+}
+.attribution
+{
+	font-size: 1rem;
+    line-height: 1.5;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    text-align: right;
+}
+.attribution a
+{
+	text-decoration: none;
+}
+
+.parent_dalivary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 8px;
+}
+
+
+
+
+
+/* men.html page css start here */
+
+.men_body_product{
+    background-color: #e5e7eb;
+}
+
+.men_product_card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+
+.cont {
+    max-width: 400px;
+    margin: 2rem auto;
+}
+
+.product-card {
+    background-color: var(--card-background);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.product-card__image {
+    height: 250px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.product-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-card__image img {
+    transform: scale(1.05);
+}
+
+.product-card__info {
+    padding: 20px;
+}
+
+.product-card__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.product-card__description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.product-card__price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-card__price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.product-card__btn {
+    background-color:black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-card__btn:hover {
+    background-color: #C71729;
+}
+
+.men_product_card_section{
+
+    
+    margin-top: 10rem;
+    margin-right: 3rem;
+    margin-left: 3rem;
+    background-color: white;
+    
+}
+
+
+
+/* shop product here */
+
+
+.parent_shop_product{
+
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 20px;
+}
+
+
+
+/* lookbook_css_start_here */
+
+
+.lookbook_preant{
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
+}
+
+
+.responsive-container{
+
+    width:50%;
+}
+
+
+/* ourstory_css_here */
+
+
+.our_story_hading{
+
+    width: 100%;
+    margin-top: 9rem;
+}
+
+
+.our_story_hading >p{
+
+    width: 50%;
+    
+}
+
+
+
+.our_quality {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 8px;
+}
+
+
+/* our_story_css_here */
+
+.mission_text{
+
+    width: 50%;
+    margin: auto;
+    
+}
+
+.mission_hading{
+
+    text-align: center;
+    margin-top: 3rem;
+    
+    
+}
+
+
+.our_story_video{
+
+    width: 88%;
+    height: 670px;
+    object-fit: cover;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .about_us_text{
+
+        width: 100%;
+        margin-left: 2rem;
+        margin-top: 2rem;
+    }
+
+    .about_us_img_div{
+
+        width: 85%;
+    }
+
+
+    .parent_banifit {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 2px;
+    }
+
+    .shoes_banifit_img_div{
+
+        width: 100%;
+        height: auto;
+        margin-top: 3rem;
+    }
+
+    .shoes_banifit_img_div img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .man-and-woman-case {
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+    
+      .item {
+        width: 100%;
+        height: 50vh; /* Adjust height as needed */
+        background-size: cover;
+        background-position: center;
+      }
+    
+      .content {
+        width: 80%;
+        margin: auto;
+      }
+
+
+      .div1_review {
+		background-position-x: 10rem;
+	}
+	.innerdiv
+	{
+		display: flex; 
+		flex-direction: column;
+		transform: scale(1);
+		margin: 2rem;
+		margin-bottom: 5rem;
+	}
+	.attribution
+	{
+		position: relative;
+	}
+
+    
+    .parent_dalivary {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 40px;
+    }
+
+
+/* men.html css start here */
+
+.cont {
+    max-width: 100%;
+    padding: 0 20px;
+    
+}
+
+.product-card__image {
+    height: 200px;
+    width: 100%;
+}
+
+.product-card__title {
+    font-size: 1.3rem;
+}
+
+.product-card__description {
+    font-size: 0.8rem;
+}
+
+.product-card__price {
+    font-size: 1.1rem;
+}
+
+.product-card__btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+}
+
+.men_product_card {
+    
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        gap: 8px;
+    
+}
+
+.product_card_wrapper{
+
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.men_product_card_section{
+    background-color: white;
+}
+
+.men_hading_wrapper{
+    
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.men_product_card_section{
+    margin: 0px;
+    padding: 0;
+    margin-top: 5rem;
+}
+
+body{
+    background-color: white;
+}
+
+.parent_shop_product{
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 8px;
+}
+
+
+/* lookbook_css_here */
+
+.responsive-container{
+
+    width: 87%;
+    
+}
+
+
+/* ourstory_css_here */
+
+
+.our_story_hading{
+
+    width: 100%;
+    margin-top: 9rem;
+}
+
+.our_story_hading >p{
+
+    width: 80%;
+    
+}
+
+/* our_story_css_here */
+
+.mission_text{
+
+    width: 90%;
+    margin: auto;
+    
+}
+
+.mission_hading{
+
+    text-align: center;
+    margin-top: 3rem;
+    
+}
+
+
+.our_quality{
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+margin-left: 2rem;
+margin-top: 2rem;
+}
+
+.our_story_video{
+
+    width: 100%;
+    height: 300px;
+}
+
+    }
+    
+    
+   
